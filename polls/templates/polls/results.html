@@ -1,0 +1,11 @@
+<h1>{{ question.question_text }}</h1>
+
+<img src="https://gifdb.com/images/high/black-cat-begging-pizza-uyl9xnllwzdl3lqt.gif" alt="Смешная черная кошка просит пиццу">
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} голосов</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Проголосовать еще раз?</a>
